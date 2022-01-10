@@ -1,3 +1,40 @@
+/// Конструктор объекта для класса Cuboid должен получить
+/// ровно три аргумента в следующем порядке: длина, ширина, высота и сохранить
+/// эти три значения в length, width и height соответственно.
+/// Класс Cuboid должен иметь геттер SurfaceArea, который возвращает
+/// площадь поверхности кубоида, и геттер Volume, который возвращает
+/// объем кубоида.
+/// Класс Cube является подклассом класса Cuboid.
+/// Функция конструктора Cube должна получить только один аргумент, его длину
+/// и использовать это переданное значение, чтобы установить
+/// length, width и height.
+void exercise8() {
+  var myCuboid = Cuboid(1, 2, 3);
+  var myCube = Cube(2);
+  print("Cuboid surface area is ${myCuboid.surfaceArea}");
+  print("Cuboid volume is ${myCuboid.volume}");
+  print("");
+  print("Cube surface area is ${myCube.surfaceArea}");
+  print("Cube volume is ${myCube.volume}");
+}
+
+class Cuboid {
+  num length;
+  num width;
+  num height;
+
+  Cuboid(this.length, this.width, this.height);
+
+  num get surfaceArea =>
+      2 * (length * width + length * height + height * width);
+
+  num get volume => length * width * height;
+}
+
+class Cube extends Cuboid {
+  Cube(num length) : super(length, length, length);
+}
+
 /// Вернуть сумму всех положительных чисел.
 void exercise7() {
   int getSumm(List<int> input) {
